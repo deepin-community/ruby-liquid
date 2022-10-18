@@ -1,0 +1,23 @@
+From: Cédric Boutillier <boutil@debian.org>
+Date: Thu, 18 Jul 2019 16:56:58 +0200
+Subject: use LOAD_PATH to find the 'liquid' library instead of using a
+ relative path. This should fix autopkgtest-pkg-ruby test suite
+
+Last-Update: Thu, 18 Jul 2019 15:55:55 +0200
+Forwarded: no
+---
+ test/test_helper.rb | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/test/test_helper.rb b/test/test_helper.rb
+index ac5ab53..40f9b8b 100755
+--- a/test/test_helper.rb
++++ b/test/test_helper.rb
+@@ -3,7 +3,6 @@
+ ENV["MT_NO_EXPECTATIONS"] = "1"
+ require 'minitest/autorun'
+ 
+-$LOAD_PATH.unshift(File.join(File.expand_path(__dir__), '..', 'lib'))
+ require 'liquid.rb'
+ require 'liquid/profiler'
+ 

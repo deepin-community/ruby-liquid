@@ -1,0 +1,4 @@
+no_relative_path_in_require.patch
+avoid-symbol-proc-ruby3.patch
+no_stackprof.patch
+skip-tainted-checks-with-ruby2.7.patch

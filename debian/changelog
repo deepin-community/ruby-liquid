@@ -1,0 +1,165 @@
+ruby-liquid (4.0.3-3) unstable; urgency=medium
+
+  [ Cédric Boutillier ]
+  * Update team name
+  * Add upstream patch to fix arity issue with ruby3.0 (Closes: #996314)
+  * Update standards version to 4.6.0, no changes needed.
+
+  [ Debian Janitor ]
+  * Update watch file format version to 4.
+  * Bump debhelper from old 12 to 13.
+  * Set field Upstream-Contact in debian/copyright.
+  * Remove obsolete fields Contact, Name from debian/upstream/metadata
+    (already present in machine-readable debian/copyright).
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 26 Oct 2021 23:26:10 +0200
+
+ruby-liquid (4.0.3-2) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Daniel Leidert ]
+  * d/control: Add Rules-Requires-Root field.
+    (Build-Depends): Add ruby-minitest.
+    (Standards-Version): Bump to 4.5.0.
+    (Homepage): Use https://shopify.github.io/liquid/.
+    (Depends): Use ${ruby:Depends} and remove interpreter.
+  * d/copyright (Source): Ditto.
+  * debian/ruby-tests.rb: Rename to debian/ruby-tests.rake and update.
+  * d/patches: Refreshed.
+  * d/patches/skip-tainted-checks-with-ruby2.7.patch: Add new patch.
+    - Skip tainted_mode checks with Ruby 2.7 (closes: #952075).
+  * d/patches/series: Add new patch.
+  * d/upstream/metadata: Add metadata.
+
+  [ Debian Janitor ]
+  * Set debhelper-compat version in Build-Depends.
+
+ -- Daniel Leidert <dleidert@debian.org>  Wed, 26 Feb 2020 23:31:20 +0100
+
+ruby-liquid (4.0.3-1) unstable; urgency=medium
+
+  * New upstream version 4.0.3
+
+  [ Daniel Leidert ]
+  * debian/compat: Raised to level 12.
+  * debian/control (Build-Depends): Raised debhelper version accordingly.
+    Dropped ruby-spy.
+    (Standards-Version): Bumped to 4.4.0.
+  * debian/copyright: Updated.
+
+ -- Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>  Thu, 18 Jul 2019 16:06:10 +0200
+
+ruby-liquid (4.0.1-1) unstable; urgency=medium
+
+  * New upstream version 4.0.1
+  * Refresh patch
+  * Add patch to skip test using unpackaged stackprof gem
+  * Bump Standards-Version to 4.3.0 (no changes needed)
+
+ -- Cédric Boutillier <boutil@debian.org>  Fri, 11 Jan 2019 16:13:08 +0100
+
+ruby-liquid (4.0.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Reupload to unstable
+  * Check gemspec dependencies during build
+
+ -- Pirate Praveen <praveen@debian.org>  Thu, 23 Aug 2018 16:40:11 +0530
+
+ruby-liquid (4.0.0-1) experimental; urgency=medium
+
+  * Team upload.
+  * New upstream version 4.0.0
+  * Move debian/watch to gemwatch.debian.net
+  * Bump Standards-Version to 4.2.0 (no changes needed)
+  * Bump debhelper compatibility level to 11
+
+ -- Pirate Praveen <praveen@debian.org>  Fri, 17 Aug 2018 17:59:36 +0530
+
+ruby-liquid (3.0.6-1) unstable; urgency=medium
+
+  * Team upload.
+  * New upstream release
+  * Remove already applied patch on new upstream version
+
+  [ Cédric Boutillier ]
+  * Bump Standards-Version to 3.9.7 (no changes needed)
+  * Use https:// in Vcs-* fields
+  * Bump debhelper compatibility level to 9
+
+ -- Lucas Albuquerque Medeiros de Moura <lucas.moura128@gmail.com>  Sun, 03 Apr 2016 23:41:50 -0300
+
+ruby-liquid (3.0.4-1) unstable; urgency=medium
+
+  * Imported Upstream version 3.0.4
+  * Add upstream patch to fix test failure for unusual timezones. Thanks Dylan
+    Thacker-Smith. This helps reproducibility of the binary package.
+    (Closes: #788694)
+
+ -- Cédric Boutillier <boutil@debian.org>  Thu, 23 Jul 2015 22:46:48 +0200
+
+ruby-liquid (3.0.3-1) unstable; urgency=medium
+
+  * Imported Upstream version 3.0.3
+  * Update packaging with dh-make-ruby -w
+  * Refresh no_relative_path_in_require.patch
+  * Build-depend on ruby-spy
+
+ -- Cédric Boutillier <boutil@debian.org>  Thu, 23 Jul 2015 06:23:26 +0200
+
+ruby-liquid (2.6.1-2) unstable; urgency=medium
+
+  * Reupload to update rubygems-integration data
+  * Bump Standards-Version to 3.9.6
+  * Set Testsuite field to autopkgtest-suite
+  * Add patch to not use relative path in require to fix autopkgtest suite
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 14 Oct 2014 23:16:41 +0200
+
+ruby-liquid (2.6.1-1) unstable; urgency=medium
+
+  * Imported Upstream version 2.6.1
+
+ -- Cédric Boutillier <boutil@debian.org>  Sat, 01 Feb 2014 19:30:53 +0100
+
+ruby-liquid (2.6.0-1) unstable; urgency=medium
+
+  * Imported Upstream version 2.6.0
+  * Bump Standards-Version to 3.9.5 (no changes needed)
+  * Build against newer gem2deb to add support for Ruby2.0 and drop Ruby1.8
+
+ -- Cédric Boutillier <boutil@debian.org>  Mon, 09 Dec 2013 17:28:56 +0100
+
+ruby-liquid (2.5.3-1) unstable; urgency=low
+
+  * Imported Upstream version 2.5.3
+
+ -- Cédric Boutillier <boutil@debian.org>  Tue, 15 Oct 2013 10:30:05 +0200
+
+ruby-liquid (2.5.0-1) unstable; urgency=low
+
+  * Imported Upstream version 2.5.0
+  * debian/control:
+    + remove obsolete DM-Upload-Allowed flag
+    + use canonical URI in Vcs-* fields
+    + update my email address
+    + bump Standards-Version to 3.9.4 (no changes needed)
+  * debian/copyright:
+    + use DEP5 copyright-format/1.0 official URL for Format field
+    + update years email addresses
+    + fix path of lib/liquid/module_ex.rb in Files: paragraph
+
+ -- Cédric Boutillier <boutil@debian.org>  Wed, 26 Jun 2013 16:55:12 +0200
+
+ruby-liquid (2.3.0-2) unstable; urgency=low
+
+  * Bump build dependency on gem2deb to >= 0.3.0~
+
+ -- Cédric Boutillier <cedric.boutillier@gmail.com>  Tue, 26 Jun 2012 13:04:55 +0200
+
+ruby-liquid (2.3.0-1) unstable; urgency=low
+
+  * Initial release (Closes: #638473).
+
+ -- Cédric Boutillier <cedric.boutillier@gmail.com>  Sat, 22 Oct 2011 00:11:06 +0200

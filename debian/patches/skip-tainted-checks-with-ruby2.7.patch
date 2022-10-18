@@ -1,0 +1,43 @@
+From: Daniel Leidert <dleidert@debian.org>
+Date: Wed, 26 Feb 2020 23:10:51 +0100
+Subject: Skip tainted checks with Ruby2.7
+
+Support for taint_mode on ruby versions that don't support it has been
+removed upstream. The patches however would be hard to backport. Better
+wait for the next release and drop this patch then.
+https://github.com/Shopify/liquid/commit/8074565c3ed1e9762979276a2c24dff98370c903
+https://github.com/Shopify/liquid/commit/40c68c9c833b0cd413aedd8c12649bf9f897e517
+
+Debian-Bug: https://bugs.debian.org/952075
+---
+ test/integration/drop_test.rb | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/test/integration/drop_test.rb b/test/integration/drop_test.rb
+index 2de4a5a..6c816e9 100644
+--- a/test/integration/drop_test.rb
++++ b/test/integration/drop_test.rb
+@@ -113,6 +113,7 @@ class DropsTest < Minitest::Test
+   end
+ 
+   def test_rendering_raises_on_tainted_attr
++    skip "Skip check. #{RUBY_ENGINE} #{RUBY_VERSION} doesn't support taint checking" if RUBY_VERSION >= '2.7'
+     with_taint_mode(:error) do
+       tpl = Liquid::Template.parse('{{ product.user_input }}')
+       assert_raises TaintedError do
+@@ -122,6 +123,7 @@ class DropsTest < Minitest::Test
+   end
+ 
+   def test_rendering_warns_on_tainted_attr
++    skip "Skip check. #{RUBY_ENGINE} #{RUBY_VERSION} doesn't support taint checking" if RUBY_VERSION >= '2.7'
+     with_taint_mode(:warn) do
+       tpl = Liquid::Template.parse('{{ product.user_input }}')
+       context = Context.new('product' => ProductDrop.new)
+@@ -132,6 +134,7 @@ class DropsTest < Minitest::Test
+   end
+ 
+   def test_rendering_doesnt_raise_on_escaped_tainted_attr
++    skip "Skip check. #{RUBY_ENGINE} #{RUBY_VERSION} doesn't support taint checking" if RUBY_VERSION >= '2.7'
+     with_taint_mode(:error) do
+       tpl = Liquid::Template.parse('{{ product.user_input | escape }}')
+       tpl.render!('product' => ProductDrop.new)

@@ -1,0 +1,24 @@
+Source: ruby-liquid
+Section: ruby
+Priority: optional
+Maintainer: Debian Ruby Team <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
+Uploaders: Cédric Boutillier <boutil@debian.org>
+Build-Depends: debhelper-compat (= 13), gem2deb, ruby-minitest
+Standards-Version: 4.6.0
+Vcs-Git: https://salsa.debian.org/ruby-team/ruby-liquid.git
+Vcs-Browser: https://salsa.debian.org/ruby-team/ruby-liquid
+Homepage: https://shopify.github.io/liquid/
+Testsuite: autopkgtest-pkg-ruby
+XS-Ruby-Versions: all
+Rules-Requires-Root: no
+
+Package: ruby-liquid
+Architecture: all
+XB-Ruby-Versions: ${ruby:Versions}
+Depends: ${misc:Depends}, ${ruby:Depends}, ${shlibs:Depends}
+Description: Ruby library for rendering safe HTML and email templates
+ Liquid is a secure, non-evaling end user template engine.  It has simple
+ markup and beautiful results and is able to style emails as well as HTML.
+ .
+ It was developed for usage in Ruby on Rails web applications and integrates
+ seamlessly as a plugin but it also works excellently as a stand alone library.

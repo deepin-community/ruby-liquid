@@ -1,0 +1,50 @@
+From: Cédric Boutillier <boutil@debian.org>
+Date: Thu, 18 Jul 2019 16:56:58 +0200
+Subject: skip test using unpackaged stackprof gem
+
+Last-Update: Thu, 18 Jul 2019 15:55:55 +0200
+Forwarded: not-needed
+---
+ test/unit/context_unit_test.rb | 24 ++++++++++++------------
+ 1 file changed, 12 insertions(+), 12 deletions(-)
+
+diff --git a/test/unit/context_unit_test.rb b/test/unit/context_unit_test.rb
+index fab19b8..a2de336 100644
+--- a/test/unit/context_unit_test.rb
++++ b/test/unit/context_unit_test.rb
+@@ -446,7 +446,7 @@ class ContextUnitTest < Minitest::Test
+     assert_equal @context, @context['category'].context
+   end
+ 
+-  def test_interrupt_avoids_object_allocations
++  def _test_interrupt_avoids_object_allocations
+     assert_no_object_allocations do
+       @context.interrupt?
+     end
+@@ -475,15 +475,15 @@ class ContextUnitTest < Minitest::Test
+ 
+   private
+ 
+-  def assert_no_object_allocations
+-    unless RUBY_ENGINE == 'ruby'
+-      skip "stackprof needed to count object allocations"
+-    end
+-    require 'stackprof'
+-
+-    profile = StackProf.run(mode: :object) do
+-      yield
+-    end
+-    assert_equal 0, profile[:samples]
+-  end
++  #def assert_no_object_allocations
++  #  unless RUBY_ENGINE == 'ruby'
++  #    skip "stackprof needed to count object allocations"
++  #  end
++  #  require 'stackprof'
++
++  #  profile = StackProf.run(mode: :object) do
++  #    yield
++  #  end
++  #  assert_equal 0, profile[:samples]
++  #end
+ end # ContextTest
